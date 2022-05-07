@@ -26,9 +26,13 @@ function App() {
       console.warn('Geolocation not supported')
     } else {
       navigator.geolocation.getCurrentPosition(pos => {
-        console.log('pos', pos)
+        const geoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=imperial&appid=${process.env.REACT_APP_OPEN_WEATHER_API}`;
+        axios.get(geoUrl).then((res) => {
+          setData(res.data);
+        })
       }, () => {
-        console.error('Unable to retrieve location')
+        // If user denied, handle here
+        console.log('User blocked access')
       })
     }
   }
