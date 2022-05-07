@@ -67,7 +67,7 @@ h1 {
 
 .container {
   max-width: 700px;
-  height: 700px;
+  height: 75%;
   margin: auto;
   padding: 0 1rem;
   position: relative;
@@ -102,4 +102,14 @@ h1 {
 
 .bold {
   font-weight: 700;
+}
+
+@media (max-width: 460px) {
+  p {
+    font-size: 1.2rem;
+  }
+  
+  h1 {
+    font-size: 5rem;
+  }
 }
